@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: 'Nunito', sans-serif;
+    --font-body: 'Quicksand', sans-serif;
+
+    --background: 120 20% 97%;
+    --foreground: 150 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 12%;
+
+    --primary: 142 55% 37%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 38 70% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 120 15% 92%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 85 45% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 120 15% 88%;
+    --input: 120 15% 88%;
+    --ring: 142 55% 37%;
+
+    --radius: 1rem;
+
+    --eco-leaf: 142 55% 37%;
+    --eco-forest: 150 40% 22%;
+    --eco-meadow: 85 45% 52%;
+    --eco-earth: 30 35% 40%;
+    --eco-sand: 38 40% 88%;
+    --eco-sky: 200 60% 60%;
+    --eco-sun: 42 90% 58%;
+    --eco-bark: 25 30% 30%;
+
+    --gradient-forest: linear-gradient(135deg, hsl(150 40% 22%), hsl(142 55% 37%));
+    --gradient-meadow: linear-gradient(135deg, hsl(85 45% 52%), hsl(142 55% 37%));
+    --gradient-sunset: linear-gradient(135deg, hsl(38 70% 55%), hsl(42 90% 58%));
+    --gradient-sky: linear-gradient(180deg, hsl(200 60% 60%), hsl(200 40% 85%));
+
+    --shadow-leaf: 0 4px 20px -4px hsl(142 55% 37% / 0.25);
+    --shadow-earth: 0 8px 32px -8px hsl(30 35% 40% / 0.2);
+    --shadow-glow: 0 0 30px hsl(142 55% 37% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 142 55% 37%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 120 15% 92%;
+    --sidebar-accent-foreground: 150 30% 12%;
+    --sidebar-border: 120 15% 88%;
+    --sidebar-ring: 142 55% 37%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50;
+    box-shadow: var(--shadow-earth);
+  }
+  .glass-strong {
+    @apply bg-card/85 backdrop-blur-2xl border border-border/60;
+    box-shadow: var(--shadow-earth);
+  }
+  .gradient-forest {
+    background: var(--gradient-forest);
+  }
+  .gradient-meadow {
+    background: var(--gradient-meadow);
+  }
+  .gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+  .text-gradient-forest {
+    background: var(--gradient-forest);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-meadow {
+    background: var(--gradient-meadow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .shadow-leaf {
+    box-shadow: var(--shadow-leaf);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(142 55% 37% / 0.2); }
+  50% { box-shadow: 0 0 40px hsl(142 55% 37% / 0.4); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-leaf-sway {
+  animation: leaf-sway 4s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes float-cloud {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+}
+
+@keyframes mascot-talk {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes bittu-idle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(2deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-2px) rotate(-2deg); }
+}
+
+@keyframes bittu-peek {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-8px); }
+}
